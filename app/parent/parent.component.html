@@ -1,0 +1,15 @@
+<br>
+<div class="container jumbotron text-center">
+  <h1 class=" text-primary">
+    This is a parent component
+  </h1>
+
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let menuItem of menuItems;let i = index">
+      {{menuItem.name}} : {{menuItem.qty}}
+      <button class="btn btn-success" (click)="increase(i)">+</button>
+    </li>
+  </ul>
+
+</div>
+<app-child [menuItems]="menuItems" (out)="getUpdatedMenuItem($event)"></app-child>
